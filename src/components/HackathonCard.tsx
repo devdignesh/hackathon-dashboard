@@ -17,12 +17,12 @@ const HackathonCard = ({ data }: { data: Hackathon }) => {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    navigate(`/hackathonDetails/${data.id}`);
+    navigate(`/hackathon-details/${data.id}`);
   };
 
   return (
     <div className="flex flex-col rounded-2xl overflow-hidden shadow-md cursor-pointer hover:scale-95 transition-all duration-200 bg-white "  onClick={handleCardClick}>
-      <img src={data.image} alt="" className="w-full object-cover" />
+      <img src={data.image} alt="" className="w-full object-cover h-[200px]" />
       <div className="flex flex-col items-center bg-white  space-y-4 p-6">
         {isUpcoming && (
           <span className="text-sm items-center rounded-lg bg-[#F2C94C40] text-black px-3 py-1">

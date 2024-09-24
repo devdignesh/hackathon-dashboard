@@ -1,13 +1,12 @@
 import dayjs from "dayjs";
 
-// Demo hackathons data
 export const hackathonsData = [
   {
     id: 1725516580499,
     name: "AI Challenge",
     description: "A hackathon focused on solving AI-related problems.",
-    startDate: dayjs(new Date(2024, 8, 1)),  
-    endDate: dayjs(new Date(2024, 8, 7)),    
+    startDate: dayjs(new Date(2024, 10, 1)),  
+    endDate: dayjs(new Date(2024, 10, 7)),    
     level: "Medium",
     image: "/images/hackathon1.png",
   },
@@ -15,8 +14,8 @@ export const hackathonsData = [
     id: 1725516580500,
     name: "Blockchain Hack",
     description: "Build blockchain-based solutions for real-world problems.",
-    startDate: dayjs(new Date(2024, 7, 28)),  
-    endDate: dayjs(new Date(2024, 8, 3)),    
+    startDate: dayjs(new Date(2024, 9, 28)),  
+    endDate: dayjs(new Date(2024, 10, 3)),    
     level: "Hard",
     image: "/images/hackathon2.png",
   },

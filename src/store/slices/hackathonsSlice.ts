@@ -14,9 +14,7 @@ const hackathonsSlice = createSlice({
   name: "hackathons",
   initialState,
   reducers: {
-    setHackathons: (state, action: PayloadAction<Hackathon[]>) => {
-      state.list = action.payload;
-    },
+   
     addHackathon: (state, action: PayloadAction<Hackathon>) => {
       state.list.push(action.payload);
     },
@@ -34,7 +32,7 @@ const hackathonsSlice = createSlice({
   },
 });
 
-export const { setHackathons, addHackathon, removeHackathon, updateHackathon } =
+export const { addHackathon, removeHackathon, updateHackathon } =
   hackathonsSlice.actions;
 
 export default hackathonsSlice.reducer;

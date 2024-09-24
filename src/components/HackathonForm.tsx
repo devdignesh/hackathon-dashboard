@@ -41,7 +41,10 @@ const HackathonForm = ({ hackathon }:HackathonFormProps) => {
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
+    console.log("file===>",file);
+
     if (file) {
+      console.log("URL file===>",URL.createObjectURL(file));
       setSelectedImage(URL.createObjectURL(file));
     }
   };
@@ -90,15 +93,15 @@ const HackathonForm = ({ hackathon }:HackathonFormProps) => {
       )}
       <div className="bg-[#F8F9FD]">
         <div className="max-w-7xl m-auto py-8 px-5">
-          <span className="text-2xl capitalize font-bold">
+          <span className="text-xl md:text-2xl capitalize font-bold">
           {hackathon ? "Update Challenge" : "Create Challenge"}
           </span>
         </div>
       </div>
-      <div className="max-w-7xl m-auto mt-5 py-8 px-5">
+      <div className="max-w-7xl m-auto py-8 px-5">
         <div className="flex flex-col space-y-6">
           <div className="flex flex-col space-y-4 max-w-md">
-            <span className="text-base font-medium">Challenge Name</span>
+            <span className="md:text-base text-sm font-medium">Challenge Name</span>
             <input
               type="text"
               value={name} 
@@ -108,7 +111,7 @@ const HackathonForm = ({ hackathon }:HackathonFormProps) => {
             />
           </div>
           <div className="flex flex-col space-y-4 max-w-md">
-            <span className="text-base font-medium">Start date</span>
+            <span className="md:text-base text-sm font-medium">Start date</span>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer components={["DateTimePicker"]}>
                 <DateTimePicker label="Add start date" className="p-0 m-0" onChange={(date) => setStartDate(date)} value={startDate}/>
@@ -116,7 +119,7 @@ const HackathonForm = ({ hackathon }:HackathonFormProps) => {
             </LocalizationProvider>
           </div>
           <div className="flex flex-col space-y-4 max-w-md">
-            <span className="text-base font-medium">End date</span>
+            <span className="md:text-base text-sm font-medium">End date</span>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer components={["DateTimePicker"]}>
                 <DateTimePicker label="Add end date" className="p-0 m-0"  onChange={(date) => setEndDate(date)} value={endDate}/>
@@ -125,7 +128,7 @@ const HackathonForm = ({ hackathon }:HackathonFormProps) => {
           </div>
 
           <div className="flex flex-col space-y-4 max-w-2xl">
-            <span className="text-base font-medium">Description</span>
+            <span className="md:text-base text-sm font-medium">Description</span>
             <textarea
               name="textarea"
               value={description} 
@@ -135,7 +138,7 @@ const HackathonForm = ({ hackathon }:HackathonFormProps) => {
             ></textarea>
           </div>
           <div className="flex flex-col space-y-4 max-w-40">
-            <span className="text-base font-medium">Image</span>
+            <span className="md:text-base text-sm font-medium">Image</span>
 
             <input
               type="file"
@@ -170,6 +173,7 @@ const HackathonForm = ({ hackathon }:HackathonFormProps) => {
                     Change image
                   </label>
                 </div>
+                
               </div>
             )
             }

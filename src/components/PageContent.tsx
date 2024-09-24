@@ -3,7 +3,7 @@ import React from "react";
 const PageContent = () => {
   return (
     <>
-      <div className="max-w-6xl m-auto py-20 px-5">
+      <div className="max-w-6xl m-auto md:py-20 px-5 py-14 ">
         <div className="flex flex-row justify-center items-center">
           <p className="text-black font-bold text-[26px]">
             Why Participate in{" "}
@@ -11,7 +11,7 @@ const PageContent = () => {
           </p>
         </div>
         <div className="flex flex-col space-y-10 mt-16">
-          <div className="flex flex-row space-x-10">
+          <div className="flex flex-col md:flex-row md:space-x-10 md:space-y-0 space-y-5">
             <div className="flex flex-col space-y-3 py-10 px-6 w-full bg-[#F8F9FD] rounded-2xl">
               <img
                 src="/images/carbon_notebook-reference.png"
@@ -41,7 +41,7 @@ const PageContent = () => {
               </span>
             </div>
           </div>
-          <div className="flex flex-row space-x-10">
+          <div className="flex flex-col md:flex-row md:space-x-10 md:space-y-0 space-y-5">
             <div className="flex flex-col space-y-3 py-10 px-6 w-full bg-[#F8F9FD] rounded-2xl">
               <img
                 src="/images/carbon_notebook-reference.png"

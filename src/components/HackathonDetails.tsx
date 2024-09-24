@@ -44,11 +44,11 @@ const HackathonDetails = () => {
 
   const handleDelete = () => {
     dispatch(removeHackathon(hackathon.id));
-    navigate("/"); // redirect to home page after successful deletion
+    navigate("/");
   };
 
   const handleEdit = () => {
-    navigate(`/createHackathon/${hackathon.id}`);
+    navigate(`/edit-hackathon-details/${hackathon.id}`);
   };
 
   return (
@@ -88,38 +88,38 @@ const HackathonDetails = () => {
               </>
             )}
           </div>
-          <div className="flex flex-col justify-start items-start">
-            <span className="text-white text-4xl capitalize font-bold mt-4">
+          <div className="flex flex-col justify-start items-start mt-5 space-y-3 md:space-y-5">
+            <span className="text-white text-3xl md:text-4xl capitalize font-bold ">
               {hackathon.name}
             </span>
-            <span className="text-white mt-6">
+            <span className="text-white ">
               Identify the class to which each butterfly belongs to
             </span>
-            <span className="text-neutral-700 bg-white px-3 py-1 rounded-md flex mt-10 flex-row items-center font-semibold ">
-              <HiMiniChartBar size={18} className="mr-2" /> {hackathon.level}
+            <span className="text-neutral-700 bg-white px-3 md:text-base text-sm py-1 rounded-md flex mt-10 flex-row items-center font-semibold ">
+              <HiMiniChartBar size={16} className="mr-2" /> {hackathon.level}
             </span>
           </div>
         </div>
       </div>
       <div className="shadow-md">
-        <div className="max-w-6xl m-auto flex flex-row justify-between pt-4 px-5">
+        <div className="max-w-6xl m-auto flex flex-row justify-between pt-3 md:pt-4 px-5">
           <span className="text-black font-semibold border-b-4 border-[#44924C] px-4 pb-2">
             Overview
           </span>
 
           <div className="space-x-4">
-            <span className="bg-[#44924C] py-2 px-4 cursor-pointer text-white text-sm font-semibold rounded-md" onClick={handleEdit}>
+            <span className="bg-[#44924C] md:py-2 px-4  py-1  cursor-pointer text-white text-sm font-semibold rounded-md" onClick={handleEdit}>
               Edit
             </span>
-            <span className="bg-white border border-red-600 py-2 px-4 cursor-pointer text-red-600 font-semibold text-sm  rounded-md" onClick={handleDelete}>
+            <span className="bg-white border border-red-600 md:py-2 py-1 px-4 cursor-pointer text-red-600 font-semibold text-sm  rounded-md" onClick={handleDelete}>
               Delete
             </span>
           </div>
         </div>
       </div>
 
-      <div className="max-w-6xl m-auto py-12 px-5">
-        <span>{hackathon.description}</span>
+      <div className="max-w-6xl m-auto py-8 md:py-12 px-5">
+        <span className="text-sm md:text-base">{hackathon.description}</span>
       </div>
     </>
   );

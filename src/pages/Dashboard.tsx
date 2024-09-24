@@ -4,8 +4,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import HackathonCard from "../components/HackathonCard";
-import { useSelector } from "react-redux";
-import { RootState } from "../store";
+import { useSelector } from "react-redux"; 
 import Hero from "../components/Hero";
 import PageContent from "../components/PageContent";
 import HackathonList from "../components/HackathonList";
@@ -24,6 +23,8 @@ const Dashboard = () => {
   const hackathons = useSelector((state: any) => state.hackathons.list);
   console.log("hackathons====>", hackathons);
 
+  console.log("selectedStatus=====>", selectedStatus);
+  
   const handleLevelChange = (level: string) => {
     setSelectedLevels((prev) =>
       prev.includes(level) ? prev.filter((l) => l !== level) : [...prev, level]
@@ -67,6 +68,7 @@ const Dashboard = () => {
       selectedLevels.length === 0 || selectedLevels.includes(hackathon.level);
 
     const status = getStatus(hackathon.startDate, hackathon.endDate);
+    
     const matchesStatus =
       selectedStatus.length === 0 || selectedStatus.includes(status);
 
@@ -94,7 +96,7 @@ const Dashboard = () => {
                 Explore Challenges
               </span>
             </div>
-            <div className="flex flex-row w-full px-20 space-x-10">
+            <div className="flex flex-col justify-center items-center space-y-5 md:space-y-0 md:flex-row w-full md:px-20 md:space-x-10">
               <div className="bg-white px-4 py-2 flex w-full flex-row space-x-4 items-center rounded-md">
                 <IoSearchOutline />
                 <input
@@ -106,7 +108,7 @@ const Dashboard = () => {
                 />
               </div>
 
-              <div className="flex flex-col space-y-4 max-w-32 relative z-30">
+              <div className=" space-y-4 max-w-32 relative z-30">
                 <div className="relative">
                   <button
                     onClick={toggleDropdown}
@@ -136,12 +138,13 @@ const Dashboard = () => {
                       {["Active", "Upcoming", "Past"].map((status) => (
                         <li
                           key={status}
-                          className="px-2 hover:bg-neutral-400/30 flex flex-row items-center justify-start cursor-pointer"
+                          className="px-2 hover:bg-neutral-400/30 group flex flex-row items-center justify-start cursor-pointer"
+                          onClick={() => handleStatusChange(status)}
                         >
                           <Checkbox
                             sx={{ "& .MuiSvgIcon-root": { fontSize: 22 } }}
                             checked={selectedStatus.includes(status)}
-                            onChange={() => handleStatusChange(status)}
+                            
                           />
                           {status}
                         </li>
@@ -154,11 +157,12 @@ const Dashboard = () => {
                         <li
                           key={level}
                           className="px-2 hover:bg-neutral-400/30 flex flex-row items-center justify-start cursor-pointer"
+                          onClick={()=> handleLevelChange(level)}
                         >
                           <Checkbox
                             sx={{ "& .MuiSvgIcon-root": { fontSize: 22 } }}
                             checked={selectedLevels.includes(level)}
-                            onChange={() => handleLevelChange(level)}
+                          
                           />
                           {level}
                         </li>
@@ -183,6 +187,7 @@ const Dashboard = () => {
                   />
                 </p>
               ))}
+
               {selectedStatus.map((status) => (
                 <p
                   key={status}
@@ -192,7 +197,7 @@ const Dashboard = () => {
                   <IoCloseCircle
                     size={18}
                     className="cursor-pointer"
-                    onClick={() => handleStatusChange(status)}
+                    onClick={() => handleClearStatus(status)}
                   />
                 </p>
               ))}
